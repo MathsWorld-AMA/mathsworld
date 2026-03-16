@@ -1,0 +1,22 @@
+
+*{
+    .poppins-regular {
+        font-family: "Poppins", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+      
+}
+      
+
+.banner{
+    background-image: url(/mathsworld/WhatsApp\ Image\ 2025-04-13\ at\ 19.35.09_8c863c00.JPG);
+    padding: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.abi{
+    padding-top: 300px;
+}

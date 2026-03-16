@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathsworld - Best Education Website</title>
+    <link rel="shortcut icon" type="x-icon" href="./image/WhatsApp Image 2025-04-11 at 20.16.05_b556494d.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/styles.css">
+    
+    
+    <link rel="stylesheet" href="./sinhala.html">
+    <link rel="stylesheet" href="./tamil.html">
+    <link rel="stylesheet" href="./css/java.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="./css/styles.css">
+
+      <style>
+
+    /* Popup overlay background */
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.4s ease;
+      z-index: 9999;
+    }
+
+    /* When popup is active */
+    .popup.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Popup content box */
+    .popup-content {
+      background: #fff;
+      border-radius: 12px;
+      max-width: 900px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+      padding: 20px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      animation: fadeInUp 0.4s ease;
+    }
+
+    /* Animation */
+    @keyframes fadeInUp {
+      from { transform: translateY(40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Close button */
+    .popup-content .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 26px;
+      cursor: pointer;
+      color: #444;
+      transition: color 0.3s;
+    }
+    .popup-content .close-btn:hover {
+      color: #e63946;
+    }
+
+    /* Image styling */
+    .popup-content img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    /* WhatsApp button */
+    .join-btn {
+      display: inline-block;
+      text-decoration: none;
+      background-color: #25D366;
+      color: white;
+      font-weight: bold;
+      padding: 12px 20px;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+    .join-btn:hover {
+      background-color: #1ebe5c;
+    }
+    /* ===== Grade Buttons Styling ===== */
+#abi .btn-outline-primary, #abi .btn-primary {
+  width: 200px;
+  height: 100px;
+  border-radius: 15px;
+  padding: 10px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  margin: 10px auto;
+  position: relative;
+  overflow: hidden; /* for ripple effect */
+}
+
+/* Hover effect: scale + glow */
+#abi .btn-outline-primary:hover, #abi .btn-primary:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.7),
+              0 0 30px rgba(0, 123, 255, 0.5);
+}
+
+/* Grade content inside button */
+.grade {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Fade-up animation on scroll (AOS) */
+[data-aos="fade-up"] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition-property: opacity, transform;
+  transition-duration: 1s;
+}
+
+/* Optional: bounce for first button */
+#abi .col-lg-2:first-child .btn-outline-primary {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Ripple effect on click */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(0, 123, 255, 0.5);
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+/* NEWS SECTION ANIMATION */
+#news {
+  background: #f8f9fa;
+  text-align: center;
+  overflow: hidden;
+}
+
+#news h1, #news p {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease;
+}
+
+#news.visible h1 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+
+#news.visible p {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.5s;
+}
+.grade-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.grade-btn h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.grade-link {
+  text-decoration: none;
+}
+
+.grade-btn {
+  color: #000000;
+  background-color: #ffffff; /* light background */
+  border: 2px solid #000000; /* Bootstrap primary color */
+  border-radius: 12px;
+  padding: 20px 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.grade-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  background-color: #000000;
+  color: white;
+}
+
+
+
+@media (max-width: 480px) {
+  .grade-btn {
+    padding: 12px 5px;
+  }
+
+  .grade-btn h3 {
+    font-size: 1rem;
+  }
+}
+
+
+  </style>
+  
+    
+</head>
+<body>
+  <section>
+<!-- ⭐ NAVBAR SECTION WITH ANIMATION -->
+        <nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">MATHS WORLD</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">MATHS WORLD</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-lg-2 " href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-lg-2" href="#">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-lg-2" href="#">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-lg-2" href="./card.html">Our team</a>
+          </li>
+          <li class="nav-items">
+            <a class="nav-links mx-lg-2" href="./sinhala.html">Sinhala</a>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+</nav>
+</section>
+
+
+<!-- ⭐ BANNER WITH ANIMATION -->
+<section id="banner">
+    <div class="banner-text">
+      <h1>MATHSWORLD</h1>
+      <h1>வாழ்வுக்கோர் கல்விக்கூடம்</h1>
+      <p>
+       எல்லையற்ற கல்வி வாய்ப்புகளுடன்,
+உங்கள் திறமைகளை வெளிக்கொணரும் MATHS WORLD-இல் இணைந்திடுங்கள்!
+      </p>
+      <a href="#courses" class="btn">More details</a>
+    </div>
+
+    <div class="banner-images">
+      <img src="./image/bat.jpg" alt="Student 1">
+    </div>
+</section>
+
+
+<section>
+  <div id="abi" class="py-5">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h1>உங்கள் பாடசாலை தரத்தை தேர்வு செய்யவும்</h1>
+      </div>
+      
+      <div class="row justify-content-center g-3">
+        <!-- Example for grades 1-12 + A/L -->
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center" data-aos="fade-up" data-aos-delay="100">
+          <a href="#" class="grade-link">
+            <div class="grade-btn">
+              <div class="grade-label">தரம்</div>
+              <h3>01</h3>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center" data-aos="fade-up" data-aos-delay="150">
+          <a href="#" class="grade-link">
+            <div class="grade-btn">
+              <div class="grade-label">தரம்</div>
+              <h3>02</h3>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center" data-aos="fade-up" data-aos-delay="150">
+          <a href="#" class="grade-link">
+            <div class="grade-btn">
+              <div class="grade-label">தரம்</div>
+              <h3>03</h3>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center" data-aos="fade-up" data-aos-delay="150">
+          <a href="#" class="grade-link">
+            <div class="grade-btn">
+              <div class="grade-label">தரம்</div>
+              <h3>04</h3>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center" data-aos="fade-up" data-aos-delay="150">
+          <a href="#" class="grade-link">
+            <div class="grade-btn">
+              <div class="grade-label">தரம்</div>
+              <h3>05</h3>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center" data-aos="fade-up" data-aos-delay="150">
+          <a href="./தரம்6.html" class="grade-link">
+            <div class="grade-btn">
+              <div class="grade-label">தரம்</div>
+              <h3>06</h3>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center" data-aos="fade-up" data-aos-delay="150">
+          <a href="./தரம்7.html" class="grade-link">
+            <div class="grade-btn">
+              <div class="grade-label">தரம்</div>
+              <h3>07</h3>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center" data-aos="fade-up" data-aos-delay="150">
+          <a href="./தரம்8.html" class="grade-link">
+            <div class="grade-btn">
+              <div class="grade-label">தரம்</div>
+              <h3>08</h3>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center" data-aos="fade-up" data-aos-delay="150">
+          <a href="./தரம்9.html" class="grade-link">
+            <div class="grade-btn">
+              <div class="grade-label">தரம்</div>
+              <h3>09</h3>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center" data-aos="fade-up" data-aos-delay="150">
+          <a href="./தரம்10.html" class="grade-link">
+            <div class="grade-btn">
+              <div class="grade-label">தரம்</div>
+              <h3>10</h3>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center" data-aos="fade-up" data-aos-delay="150">
+          <a href="./தரம்11.html" class="grade-link">
+            <div class="grade-btn">
+              <div class="grade-label">தரம்</div>
+              <h3>11</h3>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center" data-aos="fade-up" data-aos-delay="150">
+          <a href="./தரம்12.html" class="grade-link">
+            <div class="grade-btn">
+              <div class="grade-label">தரம்</div>
+              <h3>A/L</h3>
+            </div>
+          </a>
+        </div>
+
+        <!-- Repeat for 3–12 + A/L with incremental data-aos-delay -->
+      </div>
+    </div>
+  </div>
+</section>
+
+  <section id="news">
+    <div class="news">
+      <h1>சிறந்த பெறுபேறுகளுக்கு MATHS WORLD</h1>
+      <p>MATHS WORLD சிறந்த கல்வி அனுபவத்தை வழங்கும் முன்னணி தளம் — கணிதத்தில் ஆழ்ந்த புரிதலை வளர்க்கும் புதுமையான வழிமுறைகளுடன்.
+மாணவர்கள் தங்கள் சிந்தனை திறன், பிரச்சினை தீர்க்கும் திறன், மற்றும் தர்க்கபூர்வ சிந்தனையை மேம்படுத்துவதற்காக வடிவமைக்கப்பட்ட புதிய வகுப்புகள், பயிற்சிகள், மற்றும் போட்டித் தேர்வுகள் மூலம் வெற்றியை எளிதாக அடையலாம்.
+
+MATHS WORLD — கற்றல் ஒரு கடமையல்ல, ஒரு அனுபவம்!
+நம்பிக்கையுடன் கற்றுக் கொள்ளுங்கள், உறுதியுடன் முன்னேறுங்கள், வெற்றியை உங்கள் சொந்தமாக மாற்றுங்கள்.
+கணிதத்தின் மாய உலகில் உங்களை வரவேற்கிறது MATHS WORLD!</p>
+    </div>
+  </section>
+  <section class="scroll">
+    <div class="leval">
+      <h3 class="h3">உயர்தரம்</h3>
+      <div class="media">
+               <div style="width: 22rem;">
+            <a href="./gr13.paper.html"><img src="./image/Red Bold Finance YouTube Thumbnail.png" class="card-img-top" alt="..."></a>
+            <div class="card-body p-2">
+              <p>G.C.E Advanced Level Past Papers and Scheme | Tamil Medium</p>
+            </div>
+
+         </div>
+       <div style="width: 22rem;">
+            <a href="./FWC.html"><img src="./image/4.png" class="card-img-top" alt="..."></a>
+            <div class="card-body p-2">
+              <p>G.C.E Advanced Level Field Work Center Past Papers and Scheme | Tamil Medium</p>
+            </div>
+         </div>
+       <div style="width: 22rem;">
+            <a href="./moramaths.html"><img src="./image/3.png" class="card-img-top" alt="..."></a>
+            <div class="card-body p-2">
+              <p>G.C.E Advanced Level Moratuwa Past Papers and Scheme | Tamil Medium</p>
+            </div>
+         </div>
+      <div style="width: 22rem;">
+            <a href="./modelpaper.html"><img src="./image/5.png" class="card-img-top" alt="..."></a>
+            <div class="card-body p-2">
+              <p>G.C.E Advanced Level Model Papers and Scheme | Tamil Medium</p>
+            </div>
+         </div>
+              </div>
+</div>
+
+    </div>
+  </section>
+    <section>
+    <div class="leval">
+      <h3 class="h3">சாதாரண தரம்</h3>
+            <div class="media">
+                          <div style="width: 22rem;">
+            <a href="./pdf/20222023-OL-Mathematics-Past-Paper-and-Answers-Tamil-Medium-min.pdf"><img src="./image/Screenshot 2025-10-18 191713.png" class="card-img-top" alt="...">
+            <div class="card-body p-2"></a>
+              <p>G.C.E Ordinary Level Past Papers and Scheme | Tamil Medium</p>
+            </div>
+
+              </div>
+    </div>
+  </section>
+      <section>
+    <div class="leval">
+      <h3 class="h3">புதிய பதிவேற்றங்கள்</h3>
+            <div class="media">
+                          <div style="width: 22rem;">
+            <img src="./image/Screenshot 2025-09-16 095006.png" class="card-img-top" alt="...">
+            <div class="card-body p-2">
+              <h3 class="card-title">கணிதம்</h3>
+              <h5 class="py-2">தவணை 3 . தமிழ் மூலம் . 2022</h5>
+            </div>
+            <div class="card-body p-2">
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+  <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+  <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+</svg>
+               <a href="#" class="card-link">Exam Paper</a>
+            </div>
+         </div>
+                                   <div style="width: 22rem;">
+            <img src="./image/Screenshot 2025-09-16 095006.png" class="card-img-top" alt="...">
+            <div class="card-body p-2">
+              <h3 class="card-title">கணிதம்</h3>
+              <h5 class="py-2">தவணை 3 . தமிழ் மூலம் . 2022</h5>
+            </div>
+            <div class="card-body p-2">
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+  <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+  <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+</svg>
+               <a href="#" class="card-link">Exam Paper</a>
+            </div>
+         </div>
+                                   <div style="width: 22rem;">
+            <img src="./image/Screenshot 2025-09-16 095006.png" class="card-img-top" alt="...">
+            <div class="card-body p-2">
+              <h3 class="card-title">கணிதம்</h3>
+              <h5 class="py-2">தவணை 3 . தமிழ் மூலம் . 2022</h5>
+            </div>
+            <div class="card-body p-2">
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+  <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+  <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+</svg>
+               <a href="#" class="card-link">Exam Paper</a>
+            </div>
+         </div>
+                                   <div style="width: 22rem;">
+            <img src="./image/Screenshot 2025-09-16 095006.png" class="card-img-top" alt="...">
+            <div class="card-body p-2">
+              <h3 class="card-title">கணிதம்</h3>
+              <h5 class="py-2">தவணை 3 . தமிழ் மூலம் . 2022</h5>
+            </div>
+            <div class="card-body p-2">
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+  <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+  <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+</svg>
+               <a href="#" class="card-link">Exam Paper</a>
+            </div>
+         </div>
+                                   <div style="width: 22rem;">
+            <img src="./image/Screenshot 2025-09-16 095006.png" class="card-img-top" alt="...">
+            <div class="card-body p-2">
+              <h3 class="card-title">கணிதம்</h3>
+              <h5 class="py-2">தவணை 3 . தமிழ் மூலம் . 2022</h5>
+            </div>
+            <div class="card-body p-2">
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+  <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+  <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+</svg>
+               <a href="#" class="card-link">Exam Paper</a>
+            </div>
+         </div>
+                                   <div style="width: 22rem;">
+            <img src="./image/Screenshot 2025-09-16 095006.png" class="card-img-top" alt="...">
+            <div class="card-body p-2">
+              <h3 class="card-title">கணிதம்</h3>
+              <h5 class="py-2">தவணை 3 . தமிழ் மூலம் . 2022</h5>
+            </div>
+            <div class="card-body p-2">
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+  <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+  <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+</svg>
+               <a href="#" class="card-link">Exam Paper</a>
+            </div>
+         </div>
+                                   <div style="width: 22rem;">
+            <img src="./image/Screenshot 2025-09-16 095006.png" class="card-img-top" alt="...">
+            <div class="card-body p-2">
+              <h3 class="card-title">கணிதம்</h3>
+              <h5 class="py-2">தவணை 3 . தமிழ் மூலம் . 2022</h5>
+            </div>
+            <div class="card-body p-2">
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+  <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+  <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+</svg>
+               <a href="#" class="card-link">Exam Paper</a>
+            </div>
+         </div>
+              </div>
+    </div>
+  </section>
+  <footer>
+    <div class="footercontainer">
+      <div class="socialicons">
+        <a href="https://www.facebook.com/share/1MMtPzKysv/"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://www.instagram.com/mathsworld317?igsh=MTB5bG80ZHRrOWg2NA=="><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        <a href="https://mathsworld.live/"><i class="fa-brands fa-google"></i></a>
+        <a href="https://www.youtube.com/@MATHSWORLD-ama"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+      <div class="footernav">
+        <ul>        
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./Contact.html">Contact</a></li>
+        <li><a href="./card.html">Our team</a></li></ul>
+      </div>
+    </div>
+    <div class="container">
+      <p class="text-center mb-0">Copyright: 2025. designed and developed by MATHSWORLD</p>
+    </div>
+  </footer> 
+  <!-- Popup -->
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <span class="close-btn" id="closeBtn">&times;</span>
+      <img src="./image/White Flat Living Green Billboard.png" alt="Join WhatsApp Group">
+      <a href="https://whatsapp.com/channel/0029Vb65z4p5K3zO18vp401f" target="_blank" class="join-btn">
+        CLICK HERE to Join Our WhatsApp Group
+      </a>
+    </div>
+  </div>
+
+  <script>
+    // Wait for page load, then show popup after 2 seconds
+    window.addEventListener('load', function() {
+      setTimeout(() => {
+        document.getElementById('popup').classList.add('active');
+      }, 2000);
+    });
+
+    // Close popup when user clicks close button
+    document.getElementById('closeBtn').addEventListener('click', function() {
+      document.getElementById('popup').classList.remove('active');
+    });
+  </script>
+  <script>
+    const toggleBtn = document.querySelector('.toggle_btn')
+    const toggleIcon = document.querySelector('.toggle_btn i')
+    const dropDownMenu = document.querySelector('.dropdown_menu')
+  
+    toggleBtn.onclick = function () {
+        dropDownMenu.classList.toggle('open')
+        const isOpen = dropDownMenu.classList.contains('open')
+  
+        toggleBtnIcon.classList = isOpen
+        ? 'fa-solid fa-xmark'
+        : 'fa-solid fa-bars'
+  
+    }
+  </script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    offset: 80,
+    once: true
+  });
+</script>
+<script>
+document.querySelectorAll('#abi .btn-outline-primary, #abi .btn-primary').forEach(button => {
+  button.addEventListener('click', function(e) {
+    const ripple = document.createElement('span');
+    ripple.classList.add('ripple');
+    const rect = button.getBoundingClientRect();
+    ripple.style.left = `${e.clientX - rect.left}px`;
+    ripple.style.top = `${e.clientY - rect.top}px`;
+    button.appendChild(ripple);
+
+    setTimeout(() => {
+      ripple.remove();
+    }, 600);
+  });
+});
+</script>
+<!-- Add AOS CSS and JS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+<script>
+  AOS.init({
+    duration: 800,
+    offset: 100,
+    once: true
+  });
+</script>
+<script>
+window.addEventListener('scroll', function() {
+  const newsSection = document.getElementById('news');
+  const sectionPos = newsSection.getBoundingClientRect().top;
+  const screenPos = window.innerHeight / 1.2;
+
+  if (sectionPos < screenPos) {
+    newsSection.classList.add('visible');
+  }
+});
+</script>
+<script>
+  const cards = document.querySelectorAll('.media > div');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  cards.forEach(card => {
+    card.classList.add('card-animate');
+    observer.observe(card);
+  });
+</script>
+
+
+  
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+
+</html>

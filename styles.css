@@ -276,8 +276,9 @@ body {
 }
 
 .grid-list {
+  padding-top: 30px;
   display: grid;
-  gap: 30px;
+  gap: 20px;
 }
 
 .category-card,
@@ -414,6 +415,7 @@ body {
 
 
 
+
 /*-----------------------------------*\
   #HERO
 \*-----------------------------------*/
@@ -497,6 +499,22 @@ body {
   border-radius: var(--radius-5);
 
 }
+.school {
+  width: 100%;
+  padding: 20px 30px;
+  color: azure;
+  background-color: black;
+  border-radius: 10px;
+}
+
+.school:hover {
+  background-color: rgb(37, 37, 37);
+}
+
+
+.school h2 {
+  text-align: center;
+}
 
 
 
@@ -568,6 +586,9 @@ body {
 /*-----------------------------------*\
   #COURSE
 \*-----------------------------------*/
+p {
+  text-align: center;
+}
 
 .course { background-color: var(--isabelline);}
 
@@ -902,6 +923,11 @@ body {
 
 .social-link { font-size: 20px;}
 
+.social-link:hover {
+  color: blue;
+}
+
+
 .footer-bottom {
   border-block-start: 1px solid var(--eerie-black-1);
   padding-block: 30px;
@@ -936,7 +962,7 @@ body {
   transition: var(--transition-1);
 }
 
-.back-top-btn .active {
+.back-top-btn {
   transform: translateY(10px);
   opacity: 1;
   pointer-events: all;
