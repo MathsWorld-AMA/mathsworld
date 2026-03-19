@@ -452,6 +452,68 @@ body {
   border-bottom-right-radius: 90px;
 }
 
+/* --- Container fade & slide --- */
+.hero-container {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeSlideUp 1s forwards;
+    animation-delay: 0.5s;
+}
+
+/* --- Fade/slide keyframes --- */
+@keyframes fadeSlideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Button animation --- */
+.btn.has-before {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeSlideUp 1s forwards;
+    animation-delay: 1.2s;
+}
+
+/* --- Hero Banner Images --- */
+.hero-banner .img-holder {
+    position: relative;
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+    animation: floatIn 1s forwards;
+}
+
+.hero-banner .img-holder.one { animation-delay: 1.4s; }
+.hero-banner .img-holder.two { animation-delay: 1.6s; }
+
+@keyframes floatIn {
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* --- Floating effect --- */
+.hero-banner .img-holder {
+    animation: floatIn 1s forwards, float 6s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+    from { transform: translateY(0) translateX(0) scale(1); }
+    to { transform: translateY(-10px) translateX(5px) scale(1.02); }
+}
+
+.hero-shape-2 {
+    animation: float 8s ease-in-out infinite alternate;
+    transform-origin: center;
+}
+
+/* --- Typing effect style --- */
+.h1 span.typing {
+    border-right: 2px solid #000; /* Cursor */
+    padding-right: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
 
 
 
@@ -966,6 +1028,50 @@ p {
   transform: translateY(10px);
   opacity: 1;
   pointer-events: all;
+}
+
+/*scrollbar*/
+.team h1 { 
+  text-align: center;
+  padding-top: 10px;
+}
+.carousel {
+  margin: 40px auto;
+  width: 90%;
+  display: flex;
+  overflow-x: auto;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  animation: spin 10s infinite linear;
+  padding-right: 1em;
+}
+.cards {
+  flex: 0 0 5em;
+  height: 5em;
+  font-size: 3rem;
+  border-radius: .2em;
+  text-align: center;
+  align-content: center;
+}
+
+.cards img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+@keyframes spin {
+  from { translate: 0;}
+  to { translate: -100%;}
 }
 
 
