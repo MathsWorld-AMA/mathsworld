@@ -1069,9 +1069,60 @@ p {
   border-radius: 5px;
 }
 
+.groups {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  animation: spin 10s infinite linear;
+  padding-right: 9em;
+}
+
 @keyframes spin {
   from { translate: 0;}
   to { translate: -100%;}
+}
+
+#paper {
+  background-color: var(--isabelline);
+}
+.paper h1 {
+  margin: 10px 10px;
+}
+
+.subject h2{
+  margin: 10px 20px;
+  color: #000;
+  font-size: 25px;
+}
+
+.year {
+  margin: 10px;
+}
+
+.subject .download {
+  width: 95%;
+  height: 100%;
+  padding: 10px;
+  margin: 5px;
+  background: white;
+  border-radius: 10px;
+  text-align: left;
+  font-size: 17px;
+  display: grid;
+  border-style: double;
+  color: black;
+}
+.download a {
+  color: blue;
+}
+
+.downloads {
+  display: flex;
+  align-items: center;
+}
+.downloads h5 {
+  padding-right: 30px;
 }
 
 
@@ -1430,6 +1481,18 @@ p {
   .blog-shape {
     top: 0;
     left: 0;
+  }
+  .year {
+    display: flex;
+    margin: 0px 30px;
+  }
+
+  .paper h1 {
+    font-size: 45px;
+  }
+
+  .download h5 {
+    font-size: 18px;
   }
 
   
