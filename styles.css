@@ -297,7 +297,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: var(--white);
+  background-color: #135D66;
   padding-block: 12px;
   box-shadow: var(--shadow-1);
   z-index: 4;
@@ -345,7 +345,7 @@ body {
   position: fixed;
   top: 0;
   left: -320px;
-  background-color: var(--white);
+  background-color: #135D66;
   width: 100%;
   max-width: 320px;
   height: 100%;
@@ -381,9 +381,11 @@ body {
 
 }
 
-.navbar-list { padding: 15px 20px;}
+.navbar-list { 
+  padding: 15px 20px;}
 
-.navbar-item:not(:last-child) { border-block-end: 1px solid var(--platinum);}
+.navbar-item:not(:last-child) { 
+  border-block-end: 1px solid var(--platinum);}
 
 .navbar-link {
   padding-block: 8px;
@@ -393,7 +395,7 @@ body {
 }
 
 
-.navbar-link:is(:hover, :focus) { color: var(--kappel);}
+.navbar-link:is(:hover, :focus) { color: var(--white);}
 
 .overlay {
   position: fixed;
@@ -410,6 +412,53 @@ body {
   opacity: 1;
   pointer-events: all;
 
+}
+
+/* Dropdown base */
+.dropdown {
+    position: relative;
+}
+
+/* Hide menu */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background: white;
+    top: 100%;
+    left: 0;
+    min-width: 160px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 5px;
+}
+
+/* Items */
+.dropdown-menu li {
+    list-style: none;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+/* Hover (desktop) */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* MOBILE FIX */
+@media (max-width: 768px) {
+
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+    }
+
+    .dropdown-menu.show {
+        display: block;
+    }
 }
 
 
@@ -1084,15 +1133,16 @@ p {
 }
 
 #paper {
-  background-color: var(--isabelline);
+  background-color: #E3FEF7;
 }
 .paper h1 {
   margin: 10px 10px;
+  color: #003C43 ;
 }
 
 .subject h2{
   margin: 10px 20px;
-  color: #000;
+  color: black;
   font-size: 25px;
 }
 
@@ -1100,21 +1150,23 @@ p {
   margin: 10px;
 }
 
+
 .subject .download {
   width: 95%;
   height: 100%;
   padding: 10px;
   margin: 5px;
-  background: white;
+  background: #77B0AA;
   border-radius: 10px;
   text-align: left;
   font-size: 17px;
   display: grid;
   border-style: double;
-  color: black;
+  color: white;
 }
+
 .download a {
-  color: blue;
+  color: black;
 }
 
 .downloads {
@@ -1123,6 +1175,7 @@ p {
 }
 .downloads h5 {
   padding-right: 30px;
+  
 }
 
 

@@ -57,3 +57,12 @@ const activeElem = function() {
 }
 
 addEventOnElem(window, "scroll", activeElem);
+
+const dropdownToggle = document.querySelector(".dropdown-toggle");
+
+dropdownToggle.addEventListener("click", function(e) {
+    if (window.innerWidth <= 768) {
+        e.preventDefault(); // stop link jump
+        this.nextElementSibling.classList.toggle("show");
+    }
+});
