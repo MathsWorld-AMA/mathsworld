@@ -66,3 +66,12 @@ dropdownToggle.addEventListener("click", function(e) {
         this.nextElementSibling.classList.toggle("show");
     }
 });
+
+function forceDownload(e) {
+    e.preventDefault();
+    const link = document.createElement('a');
+    link.download = 'Chemistry_2025_3rd_Term.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
